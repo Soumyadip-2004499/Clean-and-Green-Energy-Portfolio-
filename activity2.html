@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Activity 2 — OTEC — Soumyadip Chattopadhyay (RA2311003010233)</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { jakarta: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            aqua: {
+              50:'#eafaff',100:'#d4f1ff',200:'#aee1ff',300:'#7bcaff',
+              400:'#47aeff',500:'#1f90f2',600:'#1674c7',700:'#105aa0',
+              800:'#0d477f',900:'#0a3866'
+            },
+            ink: { 900:'#0b1324', 800:'#101a2f', 700:'#122036' }
+          },
+          boxShadow: {
+            glass: '0 10px 30px rgba(0,0,0,.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.10));
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .marker-dot { background: radial-gradient(circle at 35% 35%, #47aeff, #1f90f2 55%, #0d477f 100%); }
+  </style>
+</head>
+
+<body class="min-h-screen font-jakarta text-white"
+      style="background:
+        radial-gradient(900px 900px at 90% -10%, #1f90f233 0%, transparent 70%),
+        radial-gradient(900px 900px at -10% 10%, #7bcaff22 0%, transparent 70%),
+        linear-gradient(180deg, #081223 0%, #07101f 60%, #0b162a 100%);">
+
+  <!-- Top Nav -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-ink-900/65 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button id="openSidebar" class="inline-flex lg:hidden items-center justify-center rounded-md p-2 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-aqua-400" aria-label="Open menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="text-2xl leading-none">🌊</span>
+          <span class="text-base font-semibold tracking-tight">Clean & Green — Portfolio</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="activity1.html" class="px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10">Activity 1</a>
+        <a href="activity2.html" class="px-3 py-2 text-sm font-medium rounded-md bg-white/10 ring-1 ring-white/15">Activity 2</a>
+        <a href="activity3.html" class="px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10">Activity 3</a>
+        <a href="index.html" class="ml-2 px-3 py-2 text-sm font-medium rounded-md border border-white/15 hover:bg-white/5">Overview</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="relative flex gap-8 py-8">
+
+      <!-- Sidebar (desktop) -->
+      <aside class="sticky top-24 hidden h-fit w-64 shrink-0 lg:block">
+        <div class="glass rounded-2xl shadow-glass">
+          <div class="px-5 pb-2 pt-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🧭</span>
+              <span class="text-sm font-semibold tracking-wide">Navigation</span>
+            </div>
+          </div>
+          <div class="px-3 pb-4">
+            <div class="px-2 pb-2 pt-3 text-xs font-medium uppercase tracking-wider text-white/60">Activities</div>
+            <nav class="space-y-1">
+              <a href="activity1.html" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-white/5">
+                <span class="inline-block h-2 w-2 rounded-full bg-white/30"></span> Activity 1
+              </a>
+              <a href="activity2.html" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium bg-white/10 ring-1 ring-white/15">
+                <span class="inline-block h-2 w-2 rounded-full marker-dot"></span> Activity 2
+              </a>
+              <a href="activity3.html" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-white/5">
+                <span class="inline-block h-2 w-2 rounded-full bg-white/30"></span> Activity 3
+              </a>
+            </nav>
+
+            <div class="px-2 pb-2 pt-5 text-xs font-medium uppercase tracking-wider text-white/60">On this page</div>
+            <nav class="space-y-1">
+              <a href="#problem" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Problem</a>
+              <a href="#diagram" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Block Diagram</a>
+              <a href="#overview" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Overview</a>
+              <a href="#source" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Source of Energy</a>
+              <a href="#conversion" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Conversion</a>
+              <a href="#output" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Output</a>
+              <a href="#relevance" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Relevance</a>
+              <a href="#flow" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Flowchart</a>
+              <a href="#faq" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Quick FAQ</a>
+            </nav>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Mobile Sidebar Drawer -->
+      <div id="drawer" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60" id="closeDrawer" aria-hidden="true"></div>
+        <aside class="absolute left-0 top-0 h-full w-72 bg-ink-800/90 backdrop-blur-xl shadow-xl">
+          <div class="flex h-16 items-center justify-between border-b border-white/10 px-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🌊</span>
+              <span class="text-sm font-semibold tracking-wide">Menu</span>
+            </div>
+            <button id="closeDrawerBtn" class="p-2 rounded-md hover:bg-white/10" aria-label="Close menu">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="p-4">
+            <div class="text-xs font-medium uppercase tracking-wider text-white/60">Activities</div>
+            <nav class="mt-2 space-y-1">
+              <a href="activity1.html" class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/10">Activity 1</a>
+              <a href="activity2.html" class="block rounded-md px-3 py-2 text-sm font-medium bg-white/10 ring-1 ring-white/15">Activity 2</a>
+              <a href="activity3.html" class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/10">Activity 3</a>
+            </nav>
+            <div class="mt-6 text-xs font-medium uppercase tracking-wider text-white/60">On this page</div>
+            <nav class="mt-2 space-y-1">
+              <a href="#problem" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Problem</a>
+              <a href="#diagram" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Block Diagram</a>
+              <a href="#overview" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Overview</a>
+              <a href="#source" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Source</a>
+              <a href="#conversion" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Conversion</a>
+              <a href="#output" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Output</a>
+              <a href="#relevance" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Relevance</a>
+              <a href="#flow" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Flowchart</a>
+              <a href="#faq" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">FAQ</a>
+            </nav>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Main -->
+      <main class="flex-1 pb-40">
+        <!-- Page header -->
+        <div class="mb-8">
+          <div class="mb-2 inline-flex items-center gap-2 text-xs font-medium text-white/60">
+            <a href="index.html" class="hover:text-white">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Activity 2</span>
+          </div>
+          <h1 class="text-3xl font-extrabold tracking-tight">Ocean Thermal Energy Conversion (OTEC) — Activity 2</h1>
+          <p class="mt-2 max-w-3xl text-sm text-white/80">
+            Develop the block diagram of an OTEC system for electricity production and freshwater generation.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a href="#diagram" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Block Diagram</a>
+            <a href="#overview" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Explanation</a>
+            <a href="#source" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Source of Energy</a>
+            <a href="#conversion" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Conversion</a>
+            <a href="#output" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Output</a>
+            <a href="#relevance" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Relevance</a>
+            <a href="#flow" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">Flowchart</a>
+            <a href="#faq" class="glass inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/10">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Problem -->
+        <section id="problem" class="mb-6">
+          <div class="glass rounded-2xl p-6 shadow-glass">
+            <h2 class="text-lg font-semibold">Problem Statement</h2>
+            <p class="mt-2 text-sm text-white/85">
+              Activity 2: Develop the block diagram of an OTEC system for electricity production and freshwater generation.
+            </p>
+            <div class="mt-4 overflow-hidden rounded-xl ring-1 ring-white/15">
+              <img src="assets/otec.jpg" alt="OTEC reference" class="h-auto w-full object-cover" />
+              <p class="mt-2 px-2 pb-1 text-[11px] text-white/60">(Figure: Reference image for OTEC)</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Diagram -->
+        <section id="diagram" class="mb-6">
+          <figure class="glass rounded-2xl p-6 shadow-glass">
+            <div class="relative overflow-hidden rounded-xl ring-1 ring-white/15">
+              <img
+                src="assets/otec_vertical.png"
+                alt="Activity 2 — OTEC Diagram"
+                class="mx-auto max-h-[680px] w-auto"
+              />
+            </div>
+            <figcaption class="mt-3 text-center text-xs text-white/70">
+              Warm Seawater → Evaporator → Turbine-Generator → Condenser → Cold Seawater
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- Numbered Concepts -->
+        <div class="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <section id="overview" class="glass rounded-2xl p-6 shadow-glass">
+            <h2 class="text-lg font-semibold">Overview — How OTEC Works</h2>
+            <ol class="mt-3 space-y-3 text-sm text-white/85 list-decimal list-inside">
+              <li><b>Surface Heat</b>: Sun warms the top ocean layer (~25–30 °C).</li>
+              <li><b>Deep Cold</b>: 700–1000 m water remains ~4–8 °C.</li>
+              <li><b>Heat Engine</b>: A closed-cycle Rankine loop (often ammonia) runs between warm and cold sources.</li>
+              <li><b>Continuous</b>: The ocean is a vast, stable heat reservoir → 24/7 baseload.</li>
+              <li><b>Co-benefits</b>: Cold-water stream enables desalination & district cooling (SWAC).</li>
+            </ol>
+          </section>
+
+          <section id="source" class="glass rounded-2xl p-6 shadow-glass">
+            <h2 class="text-lg font-semibold">Source of Energy</h2>
+            <ol class="mt-3 space-y-3 text-sm text-white/85 list-decimal list-inside">
+              <li><b>Thermal Gradient (ΔT)</b>: Usable when ΔT ≳ 20 °C.</li>
+              <li><b>Low-grade Heat</b>: Large volumes compensate for low efficiency.</li>
+              <li><b>Tropical Bands</b>: Most suitable between ~20° N and 20° S.</li>
+            </ol>
+          </section>
+
+          <section id="conversion" class="glass rounded-2xl p-6 shadow-glass">
+            <h2 class="text-lg font-semibold">Conversion Process (Closed-Cycle)</h2>
+            <ol class="mt-3 space-y-3 text-sm text-white/85 list-decimal list-inside">
+              <li><b>Evaporation</b>: Warm seawater heats a working fluid → vapor.</li>
+              <li><b>Expansion</b>: Vapor drives a turbine coupled to a generator.</li>
+              <li><b>Condensation</b>: Cold deep seawater condenses the vapor → liquid.</li>
+              <li><b>Pumping</b>: Feed pump returns liquid to evaporator; loop repeats.</li>
+              <li><b>Water Intakes/Outfalls</b>: Designed to minimize biofouling & mixing impacts.</li>
+            </ol>
+          </section>
+
+          <section id="output" class="glass rounded-2xl p-6 shadow-glass">
+            <h2 class="text-lg font-semibold">Output / Utilization</h2>
+            <ol class="mt-3 space-y-3 text-sm text-white/85 list-decimal list-inside">
+              <li><b>Electricity</b>: Baseload supply for island/coastal grids.</li>
+              <li><b>Freshwater</b>: Hybrid OTEC + desal (flash/MSF/MED) using low-grade heat.</li>
+              <li><b>Cooling & Aquaculture</b>: Cold-water stream for SWAC and nutrient-rich flows.</li>
+            </ol>
+          </section>
+        </div>
+
+        <section id="relevance" class="mb-6 glass rounded-2xl p-6 shadow-glass">
+          <h2 class="text-lg font-semibold">Real-world Relevance</h2>
+          <ol class="mt-3 space-y-3 text-sm text-white/85 list-decimal list-inside">
+            <li><b>Fuel Independence</b>: Cuts diesel imports for islands.</li>
+            <li><b>24/7 Clean Power</b>: Complements solar/wind variability.</li>
+            <li><b>Engineering Focus</b>: Deep-water pipes, corrosion control, biofouling, environmental monitoring.</li>
+            <li><b>Local Jobs</b>: Marine construction, O&M, monitoring.</li>
+          </ol>
+        </section>
+
+        <!-- Flowchart -->
+        <section id="flow" class="glass rounded-2xl p-6 shadow-glass">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="text-lg font-semibold">Conversion Flowchart</h2>
+            <a href="#top" class="text-xs font-semibold text-aqua-200 hover:underline">Back to top</a>
+          </div>
+          <div class="mt-4 overflow-hidden rounded-xl ring-1 ring-white/10">
+            <div class="w-full overflow-x-auto">
+              <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" class="h-auto w-[1000px] max-w-none">
+                <defs>
+                  <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L6,3 z" fill="#1f90f2"/>
+                  </marker>
+                </defs>
+                <rect x="160" y="20"  rx="12" ry="12" width="480" height="56" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.22)" />
+                <text x="400" y="54" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" fill="#f8fafc">Warm Surface Seawater (~25–30 °C)</text>
+                <line x1="400" y1="76"  x2="400" y2="100" stroke="#1f90f2" stroke-width="3" marker-end="url(#arrow)"/>
+                <rect x="160" y="110" rx="12" ry="12" width="480" height="56" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.22)" />
+                <text x="400" y="144" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" fill="#f8fafc">Evaporator — Heat to Working Fluid (Ammonia)</text>
+                <line x1="400" y1="166" x2="400" y2="190" stroke="#1f90f2" stroke-width="3" marker-end="url(#arrow)"/>
+                <rect x="160" y="200" rx="12" ry="12" width="480" height="56" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.22)" />
+                <text x="400" y="234" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" fill="#f8fafc">Vapor Turbine → Generator</text>
+                <line x1="400" y1="256" x2="400" y2="280" stroke="#1f90f2" stroke-width="3" marker-end="url(#arrow)"/>
+                <rect x="160" y="290" rx="12" ry="12" width="480" height="56" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.22)" />
+                <text x="400" y="324" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" fill="#f8fafc">Condenser — Cold Deep Seawater (~4–8 °C)</text>
+                <line x1="400" y1="346" x2="400" y2="370" stroke="#1f90f2" stroke-width="3" marker-end="url(#arrow)"/>
+                <rect x="160" y="380" rx="12" ry="12" width="480" height="56" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.22)" />
+                <text x="400" y="414" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" fill="#f8fafc">Pump — Working Fluid Return</text>
+                <line x1="400" y1="436" x2="400" y2="460" stroke="#1f90f2" stroke-width="3" marker-end="url(#arrow)"/>
+                <rect x="160" y="470" rx="12" ry="12" width="480" height="56" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.22)" />
+                <text x="400" y="504" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" fill="#f8fafc">Electric Output + Desalination / SWAC / Aquaculture</text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick FAQ -->
+        <section id="faq" class="mt-6 glass rounded-2xl p-6 shadow-glass">
+          <h2 class="text-lg font-semibold">Quick FAQ</h2>
+          <div class="mt-3 space-y-3 text-sm text-white/85">
+            <details class="rounded-lg border border-white/10 p-3 bg-white/5">
+              <summary class="cursor-pointer font-semibold">Minimum temperature difference?</summary>
+              <p class="mt-2 text-white/80">Practical OTEC needs ΔT ≳ 20 °C between surface and deep water for useful output.</p>
+            </details>
+            <details class="rounded-lg border border-white/10 p-3 bg-white/5">
+              <summary class="cursor-pointer font-semibold">Why ammonia as working fluid?</summary>
+              <p class="mt-2 text-white/80">Low boiling point, good heat transfer, and availability; handled with strict safety controls.</p>
+            </details>
+            <details class="rounded-lg border border-white/10 p-3 bg-white/5">
+              <summary class="cursor-pointer font-semibold">Closed vs. open cycle?</summary>
+              <p class="mt-2 text-white/80">Closed uses a refrigerant loop. Open flashes seawater to steam and can directly yield freshwater; hybrids exist.</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-8 flex items-center justify-between border-t border-white/10 py-6 text-sm text-white/60">
+          <span>© <strong class="font-semibold text-white">Soumyadip Chattopadhyay (RA2311003010233) (CTech)</strong></span>
+          <span>OTEC</span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Sticky Bottom Glass Window -->
+  <div class="fixed inset-x-0 bottom-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
+      <div class="glass rounded-2xl ring-1 ring-white/15 px-4 py-3">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="h-8 w-8 rounded-full marker-dot ring-2 ring-white/30"></div>
+            <div class="text-xs">
+              <div class="font-semibold">OTEC Project — Closed Cycle</div>
+              <div class="text-white/70">Quick navigation & key metrics</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <a href="#diagram" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">Diagram</a>
+            <a href="#conversion" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">Conversion</a>
+            <a href="#flow" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">Flowchart</a>
+            <a href="#faq" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">FAQ</a>
+          </div>
+          <div class="flex items-center gap-4 text-[12px]">
+            <div class="rounded-md bg-white/5 px-3 py-1.5 ring-1 ring-white/15">
+              <span class="text-white/70">ΔT:</span> <b>≥ 20 °C</b>
+            </div>
+            <div class="rounded-md bg-white/5 px-3 py-1.5 ring-1 ring-white/15">
+              <span class="text-white/70">Deep water:</span> <b>700–1000 m</b>
+            </div>
+            <div class="rounded-md bg-white/5 px-3 py-1.5 ring-1 ring-white/15">
+              <span class="text-white/70">Eff. (gross):</span> <b>2–4%</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="invisible fixed inset-0 z-[60] grid place-items-center bg-black/70 opacity-0 transition duration-200">
+    <button id="lightboxClose" class="absolute right-4 top-4 rounded-md bg-white/90 p-2 shadow-glass hover:bg-white" aria-label="Close">
+      <svg class="h-5 w-5 text-slate-700" viewBox="0 0 24 24" fill="none">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <img id="lightboxImg" alt="Expanded" class="max-h-[85vh] max-w-[90vw] rounded-lg shadow-2xl ring-1 ring-white/10" />
+  </div>
+
+  <!-- JS: drawer + lightbox -->
+  <script>
+    // Drawer
+    const drawer = document.getElementById('drawer');
+    const openSidebar = document.getElementById('openSidebar');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    function showDrawer(show) { if (!drawer) return; drawer.classList.toggle('hidden', !show); }
+    openSidebar && openSidebar.addEventListener('click', () => showDrawer(true));
+    closeDrawer && closeDrawer.addEventListener('click', () => showDrawer(false));
+    closeDrawerBtn && closeDrawerBtn.addEventListener('click', () => showDrawer(false));
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbClose = document.getElementById('lightboxClose');
+    function openLightbox(src, alt) { lbImg.src = src; lbImg.alt = alt || 'Expanded'; lb.classList.remove('invisible','opacity-0'); }
+    function closeLightbox() { lb.classList.add('opacity-0'); setTimeout(()=>lb.classList.add('invisible'),200); lbImg.src=''; }
+    lbClose && lbClose.addEventListener('click', closeLightbox);
+    lb && lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+    document.querySelectorAll('main img').forEach(img => {
+      img.classList.add('cursor-zoom-in');
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+  </script>
+</body>
+</html>
