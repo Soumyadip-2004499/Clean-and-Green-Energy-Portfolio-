@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Renewable Energy Portfolio — Soumyadip</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { jakarta: ['Plus Jakarta Sans','ui-sans-serif','system-ui'] },
+          colors: {
+            ocean: {
+              50:'#edf7ff',100:'#d8eeff',200:'#b6ddff',300:'#89c6ff',
+              400:'#5aa9ff',500:'#2c8aff',600:'#1f6ddd',700:'#1957b0',
+              800:'#164a8f',900:'#123c73'
+            },
+            mint: { 400:'#53d8b6', 500:'#2ec4a7' },
+            ink: { 900:'#0a1425', 800:'#0e1a2f', 700:'#122036' }
+          },
+          boxShadow: {
+            glass: '0 10px 30px rgba(0,0,0,.15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Simple glass utilities -->
+  <style>
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.10));
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .marker-dot { background: radial-gradient(circle at 35% 35%, #5aa9ff, #2c8aff 55%, #164a8f 100%); }
+  </style>
+</head>
+
+<body class="min-h-screen font-jakarta text-white"
+      style="background:
+        radial-gradient(1100px 800px at 90% -10%, #2c8aff33 0%, transparent 70%),
+        radial-gradient(900px 900px at -10% 10%, #53d8b622 0%, transparent 70%),
+        linear-gradient(180deg, #081223 0%, #07101f 60%, #0b162a 100%);">
+
+  <!-- Top Nav -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-ink-900/65 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button id="openSidebar" class="inline-flex lg:hidden items-center justify-center rounded-md p-2 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ocean-400" aria-label="Open menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="text-2xl leading-none">🌿</span>
+          <span class="text-base font-semibold tracking-tight">Clean & Green — Portfolio</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="activity1.html" class="px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10">Activity 1</a>
+        <a href="activity2.html" class="px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10">Activity 2</a>
+        <a href="activity3.html" class="px-3 py-2 text-sm font-medium rounded-md hover:bg-white/10">Activity 3</a>
+        <a href="index.html" class="ml-2 px-3 py-2 text-sm font-medium rounded-md bg-white/10 ring-1 ring-white/15">Overview</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="relative flex gap-8 py-8">
+
+      <!-- Sidebar (desktop) -->
+      <aside class="sticky top-24 hidden h-fit w-64 shrink-0 lg:block">
+        <div class="glass rounded-2xl shadow-glass">
+          <div class="px-5 pb-2 pt-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🧭</span>
+              <span class="text-sm font-semibold tracking-wide">Navigation</span>
+            </div>
+          </div>
+          <div class="px-3 pb-4">
+            <div class="px-2 pb-2 pt-3 text-xs font-medium uppercase tracking-wider text-white/60">Activities</div>
+            <nav class="space-y-1">
+              <a href="activity1.html" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Activity 1 — Biomass &amp; Biogas</a>
+              <a href="activity2.html" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Activity 2 — OTEC</a>
+              <a href="activity3.html" class="block rounded-md px-3 py-2 text-sm hover:bg-white/5">Activity 3 — Tidal Power</a>
+            </nav>
+
+            <div class="px-2 pb-2 pt-5 text-xs font-medium uppercase tracking-wider text-white/60">Home</div>
+            <a href="index.html" class="block rounded-md px-3 py-2 text-sm font-medium bg-white/10 ring-1 ring-white/15">Overview</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Mobile Sidebar Drawer -->
+      <div id="drawer" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60" id="closeDrawer" aria-hidden="true"></div>
+        <aside class="absolute left-0 top-0 h-full w-72 bg-ink-800/90 backdrop-blur-xl shadow-xl">
+          <div class="flex h-16 items-center justify-between border-b border-white/10 px-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🌿</span>
+              <span class="text-sm font-semibold tracking-wide">Menu</span>
+            </div>
+            <button id="closeDrawerBtn" class="p-2 rounded-md hover:bg-white/10" aria-label="Close menu">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="p-4">
+            <div class="text-xs font-medium uppercase tracking-wider text-white/60">Activities</div>
+            <nav class="mt-2 space-y-1">
+              <a href="activity1.html" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Activity 1 — Biomass &amp; Biogas</a>
+              <a href="activity2.html" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Activity 2 — OTEC</a>
+              <a href="activity3.html" class="block rounded-md px-3 py-2 text-sm hover:bg-white/10">Activity 3 — Tidal Power</a>
+            </nav>
+            <div class="mt-6 text-xs font-medium uppercase tracking-wider text-white/60">Home</div>
+            <a href="index.html" class="mt-2 block rounded-md px-3 py-2 text-sm font-medium bg-white/10 ring-1 ring-white/15">Overview</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Main -->
+      <main class="flex-1 pb-40">
+        <!-- Hero -->
+        <section class="mb-8 glass rounded-2xl shadow-glass px-6 py-10 ring-1 ring-white/15">
+          <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div class="max-w-2xl">
+              <p class="text-xs font-semibold uppercase tracking-wider text-ocean-200">Portfolio</p>
+              <h1 class="mt-2 text-3xl font-extrabold tracking-tight">Renewable Energy Portfolio</h1>
+              <p class="mt-3 text-sm leading-6 text-white/85">
+                Explore three clean-energy activities with clear diagrams and stepwise flows that show how raw resources become useful electricity and heat.
+              </p>
+
+              <!-- Numbered quick explainer -->
+              <ol class="mt-4 space-y-2 text-sm text-white/85 list-decimal list-inside">
+                <li><b>Start</b> with Biomass & Biogas (waste → methane → power/heat).</li>
+                <li><b>Learn</b> OTEC (ocean ΔT → Rankine loop → baseload power).</li>
+                <li><b>Finish</b> with Tidal (predictable tides/streams → turbines → grid).</li>
+              </ol>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                <a href="activity1.html" class="inline-flex items-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/20 hover:bg-white/15">Start Activity 1</a>
+                <a href="#activities" class="inline-flex items-center rounded-lg border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/5">See all activities</a>
+              </div>
+            </div>
+
+            <!-- Decorative illustration -->
+            <div class="hidden lg:block">
+              <div class="rounded-xl border border-white/15 bg-white/[.04] p-6">
+                <svg class="h-32 w-64" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="18" y="26" width="86" height="44" rx="10" stroke="#2ec4a7" />
+                  <line x1="104" y1="48" x2="156" y2="48" stroke="#5aa9ff" stroke-width="3" />
+                  <rect x="156" y="26" width="86" height="44" rx="10" stroke="#2ec4a7" />
+                  <line x1="242" y1="48" x2="300" y2="48" stroke="#5aa9ff" stroke-width="3" />
+                  <rect x="300" y="26" width="6" height="44" rx="3" stroke="#2ec4a7" />
+                  <rect x="60" y="92" width="86" height="44" rx="10" stroke="#2ec4a7" />
+                  <line x1="146" y1="114" x2="230" y2="114" stroke="#5aa9ff" stroke-width="3" />
+                  <rect x="230" y="92" width="86" height="44" rx="10" stroke="#2ec4a7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activities grid -->
+        <section id="activities" class="mb-10">
+          <div class="mb-4 flex items-center justify-between">
+            <h2 class="text-lg font-semibold">Activities</h2>
+            <a href="activity1.html" class="text-xs font-semibold text-ocean-200 hover:underline">Jump to Activity 1</a>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <!-- Card 1 -->
+            <article class="glass group rounded-xl p-6 ring-1 ring-white/15 shadow-glass transition hover:translate-y-[-2px]">
+              <div class="flex items-center gap-2 text-xs font-medium text-white/70">
+                <span class="inline-block h-2 w-2 rounded-full marker-dot"></span> Biomass &amp; Biogas
+              </div>
+              <h3 class="mt-2 text-base font-semibold">Activity 1 — Biomass &amp; Biogas</h3>
+              <ol class="mt-2 space-y-1 text-sm text-white/85 list-decimal list-inside">
+                <li>Collect wet organics (manure/food slurry).</li>
+                <li>Digest anaerobically → biogas (CH₄ + CO₂).</li>
+                <li>Clean gas → engine/microturbine → power + heat.</li>
+              </ol>
+              <div class="mt-4">
+                <a href="activity1.html" class="inline-flex items-center rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/15">Open Activity 1</a>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="glass group rounded-xl p-6 ring-1 ring-white/15 shadow-glass transition hover:translate-y-[-2px]">
+              <div class="flex items-center gap-2 text-xs font-medium text-white/70">
+                <span class="inline-block h-2 w-2 rounded-full marker-dot"></span> OTEC
+              </div>
+              <h3 class="mt-2 text-base font-semibold">Activity 2 — OTEC</h3>
+              <ol class="mt-2 space-y-1 text-sm text-white/85 list-decimal list-inside">
+                <li>Warm surface water heats working fluid.</li>
+                <li>Vapor drives turbine → generator.</li>
+                <li>Cold deep water condenses fluid → loop repeats.</li>
+              </ol>
+              <div class="mt-4">
+                <a href="activity2.html" class="inline-flex items-center rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/15">Open Activity 2</a>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="glass group rounded-xl p-6 ring-1 ring-white/15 shadow-glass transition hover:translate-y-[-2px]">
+              <div class="flex items-center gap-2 text-xs font-medium text-white/70">
+                <span class="inline-block h-2 w-2 rounded-full marker-dot"></span> Tidal Power
+              </div>
+              <h3 class="mt-2 text-base font-semibold">Activity 3 — Tidal Power</h3>
+              <ol class="mt-2 space-y-1 text-sm text-white/85 list-decimal list-inside">
+                <li>Use range (head) or stream (velocity).</li>
+                <li>Water drives rotors → generator.</li>
+                <li>Power conditioned → transformer → grid.</li>
+              </ol>
+              <div class="mt-4">
+                <a href="activity3.html" class="inline-flex items-center rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold ring-1 ring-white/20 hover:bg-white/15">Open Activity 3</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-6 flex items-center justify-between border-t border-white/10 py-6 text-sm text-white/60">
+          <span>© <strong class="font-semibold text-white">Soumyadip</strong></span>
+          <span>Renewable Energy Portfolio</span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Sticky Bottom Glass Window (Quick Launcher) -->
+  <div class="fixed inset-x-0 bottom-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
+      <div class="glass rounded-2xl ring-1 ring-white/15 px-4 py-3">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="h-8 w-8 rounded-full marker-dot ring-2 ring-white/30"></div>
+            <div class="text-xs">
+              <div class="font-semibold">Quick Launch</div>
+              <div class="text-white/70">Jump to any activity & view key pointers</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <a href="activity1.html" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">Activity 1</a>
+            <a href="activity2.html" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">Activity 2</a>
+            <a href="activity3.html" class="rounded-lg bg-white/10 px-3 py-1.5 text-[12px] font-semibold ring-1 ring-white/20 hover:bg-white/15">Activity 3</a>
+          </div>
+          <div class="flex items-center gap-4 text-[12px]">
+            <div class="rounded-md bg-white/5 px-3 py-1.5 ring-1 ring-white/15">
+              <span class="text-white/70">Biogas:</span> <b>CH₄ capture</b>
+            </div>
+            <div class="rounded-md bg-white/5 px-3 py-1.5 ring-1 ring-white/15">
+              <span class="text-white/70">OTEC:</span> <b>ΔT ≥ 20 °C</b>
+            </div>
+            <div class="rounded-md bg-white/5 px-3 py-1.5 ring-1 ring-white/15">
+              <span class="text-white/70">Tidal:</span> <b>Range ≥ 4–5 m</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal JS for drawer -->
+  <script>
+    const drawer = document.getElementById('drawer');
+    const openSidebar = document.getElementById('openSidebar');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+
+    function showDrawer(show) {
+      if (!drawer) return;
+      drawer.classList.toggle('hidden', !show);
+    }
+    openSidebar && openSidebar.addEventListener('click', () => showDrawer(true));
+    closeDrawer && closeDrawer.addEventListener('click', () => showDrawer(false));
+    closeDrawerBtn && closeDrawerBtn.addEventListener('click', () => showDrawer(false));
+  </script>
+</body>
+</html>
